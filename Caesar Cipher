@@ -1,0 +1,32 @@
+#A python program to illustrate Caesar Cipher Technique 
+
+import string
+
+lowercase = []
+uppercase = []
+
+for let in string.ascii_lowercase:
+    lowercase.append(let)
+
+for ter in string.ascii_uppercase:
+    uppercase.append(ter)
+    
+def encrypt(text, s):
+    results = ""
+    
+    for i in range(len(text)):
+        char = text[i]
+        
+        if (char.isupper()):
+            results += uppercase[(uppercase.index(char) + s) % 26]
+        
+        else: 
+            results += lowercase[(lowercase.index(char) + s) % 26]
+
+    return results
+#check the above function 
+text = "DdAB"
+s = 2
+print ("Text : " + text) 
+print ("Shift : " + str(s)) 
+print ("Cipher: " + encrypt(text,s)) 
